@@ -1,0 +1,17 @@
+/*
+ * Jahja Ibrakovic
+ * AT Problem Set 03
+ */
+
+print "Give me a random number!"
+Retrive a random number from the user and store it in variable num 
+
+if their number is less than or equal to 1, 
+    print "Your number is not prime."
+
+else 
+    Begin a loop that divides prime by every int number, lets call these d, from 2 to num
+    if num % d is == 0 at any point in the loop 
+        print "Your number is not prime."
+    else
+        print "your number is prime!"
