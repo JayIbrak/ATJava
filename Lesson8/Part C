@@ -1,0 +1,25 @@
+n = 1;
+while (n < 13){
+   System.out.print(n + " ");
+   n = n + 3;
+}
+1 4 7 10 13
+
+n = 1;
+while (n < 13){
+   n = n + 3;
+   System.out.print(n + " ");
+}
+4 7 10 13
+
+for (n = 1; n < 4; n++)
+{
+   System.out.print(n + " ");
+}
+1 2 3 
+
+for (n = 1; n <= 4; n++)
+{
+   System.out.print(n + " ");
+}
+1 2 3 4
