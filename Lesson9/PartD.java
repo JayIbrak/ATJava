@@ -10,7 +10,7 @@ import java.util.Random;
 class Die{
     private int value = 1;
     Random random = new Random();
-
+//initializing
     void sides()
     {
         value = 1;
@@ -75,7 +75,7 @@ class Die{
         System.out.println("+--------+");
     }
     }
-
+//listing all of the things that you can do in the class as well as making the graphics for the dice
     
 }
 
@@ -103,6 +103,7 @@ public class PartD {
         System.out.println("Goodbye! Thanks for playing!");
         break;
         }
+        //essentially the body of the program itself, actually USING the class we just made to make the user able to interact with the die
      }
   }
 }
