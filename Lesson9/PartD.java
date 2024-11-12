@@ -8,9 +8,28 @@ import java.util.Scanner;
 import java.util.Random;
 
 class Die{
-    private int value = 1;
+    private int value;
     Random random = new Random();
 //initializing
+
+    public Die()
+    {
+        value = 1;
+    } 
+
+    public Die(int givenValue)
+    {
+        if(givenValue >= 1 && givenValue <= 6)
+        {
+            value = givenValue;
+        }
+        else
+        {
+            value = 1;
+        }
+    }
+    //I created two constructors here, which consist of a default constuctor and one to track a given value, in the end, the value will be whatever is given or 1 if a number is not given
+
     void sides()
     {
         value = 1;
@@ -82,11 +101,18 @@ class Die{
 public class PartD {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
-        Die die = new Die();
-        
+
+        System.out.print("Please enter the inital value of the die(1-6): ");
+        int givenValue = in.nextInt();
+        System.out.println();
+
+        Die die = new Die(givenValue);
+        System.out.println("Initial value of the die: ");
+        die.view();
+
         while(true)
         {
-            System.out.print("Let's roll some dice! What would you like to do with the die(r to roll, d to view the current value, and q to quit):");
+        System.out.print("Let's roll some dice! What would you like to do with the die(r to roll, d to view the current value, and q to quit):");
         String move = in.nextLine();
 
         if(move.equals("r"))
