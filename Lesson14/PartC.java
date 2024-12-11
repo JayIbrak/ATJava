@@ -8,7 +8,7 @@ public class PartC {
 
         for(double num : numbers)
         {
-            System.out.println(num);
+            System.out.println(num); 
             sum += num;
         }
     
