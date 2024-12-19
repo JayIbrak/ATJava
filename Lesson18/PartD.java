@@ -3,7 +3,7 @@
  * Lesson 19
  */
 
-package Lesson19;
+package Lesson18;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class PartD {
