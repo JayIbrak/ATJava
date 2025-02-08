@@ -57,4 +57,30 @@ public class Yard {
     }
     // All the getters and setters for the yard as well as the print method
 
+    public void printYard(Mower mower) {
+        int rows = yard.length;
+        int cols = yard[0].length;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (i == mower.getRow() && j == mower.getColumn()) {
+                    char symbol;
+                    if (mower.getDirection() == 0) {
+                        symbol = '^';
+                    } else if (mower.getDirection() == 1) {
+                        symbol = '>';
+                    } else if (mower.getDirection() == 2) {
+                        symbol = 'v';
+                    } else {
+                        symbol = '<';
+                    }
+                    System.out.print(symbol);
+                } else {
+                    System.out.print(yard[i][j]);
+                }
+            }
+            System.out.println();
+        }
+    }
+    // The overloaded print method for the mower itself
 }
