@@ -20,15 +20,16 @@ public class PartB {
         Mower mower = new Mower(initialRow, initialColumn, initialDirection);
 
         while (true) {
+            clearScreen(); // Clear the screen at the start of each iteration.
             mower.mow(yard);
             yard.printYard(mower);
             delay(500);
+
             if (mower.getColumn() >= yard.getWidth()) {
                 break;
             }
             mower.moveForward();
         }
-        clearScreen();
         yard.printYard(mower);
         System.out.println();
         System.out.println("The mower has drawn a line of grass now where's my money");
