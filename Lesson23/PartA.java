@@ -7,16 +7,16 @@ public class PartA {
         while (true) {
             try {
                 System.out.print("Enter a quiz score (0 to 100): ");
-                int score = in.nextInt(); // Read the input
+                int score = in.nextInt();
                 if (score < 0 || score > 100) {
                     throw new ArithmeticException("Invalid score. Please enter a score between 0 and 100.");
                 }
-                return score; // Return valid score
+                return score;
             } catch (ArithmeticException e) {
-                System.out.println(e.getMessage()); // Print the error message
+                System.out.println(e.getMessage());
             } catch (Exception e) {
                 System.out.println("Invalid input. Please enter an integer.");
-                in.next(); // Clear invalid input (e.g., a non-integer)
+                in.next();
             }
         }
     }
