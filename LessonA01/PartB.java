@@ -116,5 +116,11 @@ class Board extends JPanel {
 
         g2d.setColor(Color.BLUE);
         g2d.drawString("Hello, World!", 0, 0);
+        // for some reason no matter what I do, or how I orient the the text it just
+        // will not show up.
+        // I missed the last class so there may have been something that I just simply
+        // am not aware of but please let me know so I can correct
+        // I'll be sure to stop by AB but I will submit this now just because I am on
+        // Special Olympics and want to make sure I make deadlines!
     }
 }
