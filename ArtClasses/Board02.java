@@ -1,11 +1,13 @@
 package ArtClasses;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
+import ArtClasses.Soundclip;
 
 public class Board02 extends JPanel {
     private BufferedImage image;
@@ -17,6 +19,8 @@ public class Board02 extends JPanel {
     private final int WIDTH = 720;
     private final int HEIGHT = 480;
     private final int DELAY = 25;
+    private Soundclip sitar;
+    private Soundclip owSound;
 
     public Board02() {
         setBackground(Color.CYAN);
@@ -29,6 +33,13 @@ public class Board02 extends JPanel {
         }
 
         Timer timer = new Timer(DELAY, e -> updateAnimation());
+        timer.start();
+        sitar = new Soundclip("/Users/jay/Downloads/sitar.wav");
+        sitar.open();
+        sitar.setLoop(true);
+        sitar.play();
+        owSound = new Soundclip("/Users/jay/Downloads/ow.wav");
+        owSound.open();
         timer.start();
     }
 
