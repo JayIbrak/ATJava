@@ -26,7 +26,7 @@ public class PartB {
             System.out.println(a1.getName() + " and " + a2.getName() + " have the same weight.");
         }
 
-        animals.sort(null);
+        animals.sort(null);  ,
         System.out.println("Animals sorted by weight:");
         for (Animal animal : animals) {
             System.out.println(animal);
