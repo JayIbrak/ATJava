@@ -101,7 +101,7 @@ public class Cannon {
         }
     }
 
-    public void draw(Graphics2D g2d) {
+    public void draw(Graphics g2d) {
         AffineTransform at = new AffineTransform();
         at.translate(x, y);
         at.rotate(Math.toRadians(angle), 15, 25);
@@ -123,5 +123,9 @@ public class Cannon {
         g2d.fillPolygon(base);
         g2d.setColor(Color.BLACK);
         g2d.drawPolygon(base);
+    }
+
+    public void draw(Graphics g2d) {
+        throw new UnsupportedOperationException("Unimplemented method 'draw'");
     }
 }

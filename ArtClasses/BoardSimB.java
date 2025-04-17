@@ -4,6 +4,7 @@ import ArtClasses.Cannon;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.image.ImageObserver;
 
 public class BoardSimB extends JPanel implements KeyListener {
     private Cannon cannon;
@@ -14,16 +15,18 @@ public class BoardSimB extends JPanel implements KeyListener {
         cannon = new Cannon();
     }
 
-    public void paintComponent(Graphics G) {
-        super.paintComponent(G);
+    public void paintComponent(Graphics g2d) {
+        super.paintComponent(g2d);
         setBackground(Color.CYAN);
 
         final int FLOOR = getHeight() - 25;
-        G.setColor(Color.BLACK);
-        G.fillRect(0, FLOOR, getWidth(), 5);
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(0, FLOOR, getWidth(), 5);
 
-        G.setColor(Color.GREEN);
-        G.fillRect(0, FLOOR + 5, getWidth(), getHeight());
+        g2d.setColor(Color.GREEN);
+        g2d.fillRect(0, FLOOR + 5, getWidth(), getHeight());
+
+        cannon.draw(g2d);
     }
 
     public void keyPressed(KeyEvent e) {
