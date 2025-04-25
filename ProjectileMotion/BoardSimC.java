@@ -1,27 +1,35 @@
-package ArtClasses;
+package ProjectileMotion;
 
 import java.awt.*;
 import javax.swing.*;
-
-import ProjectileMotion.Cannon;
-
 import java.awt.event.*;
 import java.awt.image.ImageObserver;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class BoardSimB extends JPanel implements KeyListener {
+public class BoardSimC extends JPanel implements KeyListener {
     private final int B_WIDTH = 1440;
     private final int B_HEIGHT = 810;
     private int FLOOR = B_HEIGHT - 25;
 
     private Cannon cannon;
     private final double INITIAL_ANGLE = -45;
+    private CannonBall ball;
 
-    public BoardSimB() {
+    private Timer timer;
+    private final int INITAL_DELAY = 100;
+    private final int TIMER_INTERVAL = 20;
+
+    public BoardSimC() {
         setBackground(Color.CYAN);
         setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
         this.setFocusable(true);
         this.addKeyListener(this);
         cannon = new Cannon(60, B_HEIGHT - 60, INITIAL_ANGLE);
+
+        ball = new CannonBall(0, 1, FLOOR);
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new ScheduledUpdate(), INITAL_DELAY, TIMER_INTERVAL);
     }
 
     public void paintComponent(Graphics g) {
@@ -32,6 +40,7 @@ public class BoardSimB extends JPanel implements KeyListener {
         g2d.fillRect(0, FLOOR, B_WIDTH, B_HEIGHT - FLOOR);
 
         cannon.draw(g2d);
+        ball.draw(g2d);
     }
 
     public void keyPressed(KeyEvent e) {
@@ -48,7 +57,7 @@ public class BoardSimB extends JPanel implements KeyListener {
         }
 
         else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            cannon.fire();
+            cannon.fire(ball);
         }
     }
 
@@ -60,4 +69,10 @@ public class BoardSimB extends JPanel implements KeyListener {
         throw new UnsupportedOperationException("Unimplemented method 'keyTyped'");
     }
 
+    private class ScheduledUpdate extends TimerTask {
+        public void run() {
+            ball.updateBall();
+            repaint();
+        }
+    }
 }
