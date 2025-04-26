@@ -32,6 +32,10 @@ public class EchoServer {
             while ((inputLine = in.readLine()) != null) {
                 System.out.println("received: " + inputLine);
                 out.println(inputLine);
+                if ("exit".equalsIgnoreCase(inputLine)) {
+                    System.out.println("Exit command received. Closing connection.");
+                    break;
+                }
             }
         } catch (IOException e) {
             System.out.println("Exception caught when trying to listen on port "

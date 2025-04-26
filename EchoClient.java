@@ -37,6 +37,10 @@ public class EchoClient {
             while ((userInput = stdIn.readLine()) != null) {
                 out.println(userInput);
                 System.out.println("echo: " + in.readLine());
+                if ("exit".equalsIgnoreCase(userInput)) {
+                    System.out.println("Exit command sent. Closing connection.");
+                    break;
+                }
             }
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);
